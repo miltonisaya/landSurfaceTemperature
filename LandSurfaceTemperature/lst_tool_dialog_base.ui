@@ -1,0 +1,2565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LandSurfaceTemperatureDialogBase</class>
+ <widget class="QDialog" name="LandSurfaceTemperatureDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>839</width>
+    <height>458</height>
+   </rect>
+  </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Land Surface Temperature Estimation Plugin</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="mainTabWiget">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="icon">
+       <iconset>
+        <normaloff>:/plugins/LandSurfaceTemperature/icons/radiance.png</normaloff>:/plugins/LandSurfaceTemperature/icons/radiance.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>Radiance</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="4" column="3">
+        <widget class="QPushButton" name="radBrwOutput">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QPushButton" name="radBrwThermal">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Add result to project</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="radLabelOffset">
+         <property name="text">
+          <string>Offset Calibration Factor</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1" colspan="2">
+        <widget class="QLineEdit" name="radMetadata"/>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QComboBox" name="radBandNo"/>
+       </item>
+       <item row="10" column="0" colspan="4">
+        <spacer name="horizontalSpacer_13">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="3">
+        <widget class="QPushButton" name="radBrwMeta">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="rad_lblOutputRaster_2">
+         <property name="text">
+          <string>Output Raster</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="rad_lblSensorType_2">
+         <property name="text">
+          <string>Sensor Type</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0" colspan="4">
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="1" colspan="2">
+        <widget class="QLineEdit" name="radThermalBand"/>
+       </item>
+       <item row="4" column="1" colspan="2">
+        <widget class="QLineEdit" name="radOutputRaster"/>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lblRadianceMeta">
+         <property name="text">
+          <string>Metadata File</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="2">
+        <widget class="QComboBox" name="radSensorType">
+         <item>
+          <property name="text">
+           <string>ASTER</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Landsat TM</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Landsat ETM+</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Landsat TIRS</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="11" column="2">
+        <widget class="QPushButton" name="radCalc">
+         <property name="text">
+          <string>Calculate</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblBandNo">
+         <property name="text">
+          <string>Band Number</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QComboBox" name="radGain">
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>High</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Low</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="rad_lblRadianceRaster_2">
+         <property name="text">
+          <string>Thermal Band</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="3">
+        <widget class="QPushButton" name="rad_btnClose">
+         <property name="text">
+          <string>Close</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblGain">
+         <property name="text">
+          <string>Gain</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QCheckBox" name="radAddToQGIS">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_42">
+         <property name="text">
+          <string>Output Format</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1" colspan="2">
+        <widget class="QLineEdit" name="radOffset">
+         <property name="text">
+          <string>0.0</string>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QComboBox" name="radFormat"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="icon">
+       <iconset>
+        <normaloff>:/plugins/LandSurfaceTemperature/icons/bt.png</normaloff>:/plugins/LandSurfaceTemperature/icons/bt.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>Brightness Temperature</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="9" column="0" colspan="4">
+        <spacer name="horizontalSpacer_15">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QComboBox" name="btBandNo"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="bt_lblSensorType_2">
+         <property name="text">
+          <string>Sensor Type</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QPushButton" name="btOutRasterBrw">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Band</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QLineEdit" name="btRadianceRaster"/>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="btAddToProject">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QPushButton" name="btRadRasterBrw">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0" colspan="4">
+        <spacer name="horizontalSpacer_24">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="1" colspan="2">
+        <widget class="QComboBox" name="btSensorType">
+         <item>
+          <property name="text">
+           <string>ASTER</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Landsat TM</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Landsat ETM+</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Landsat TIRS</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>Add result to project</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="3">
+        <widget class="QPushButton" name="bt_btnClose">
+         <property name="text">
+          <string>Close</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" colspan="2">
+        <widget class="QLineEdit" name="btOutputRaster"/>
+       </item>
+       <item row="10" column="0" colspan="4">
+        <spacer name="horizontalSpacer_14">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="bt_lblOutputRaster_2">
+         <property name="text">
+          <string>Output Raster (K)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="4">
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="bt_lblRadRaster_2">
+         <property name="text">
+          <string>Radiance Raster</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="2">
+        <widget class="QPushButton" name="btCalculate">
+         <property name="text">
+          <string>Calculate</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="btFormat"/>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_43">
+         <property name="text">
+          <string>Output Format</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="icon">
+       <iconset>
+        <normaloff>:/plugins/LandSurfaceTemperature/icons/ndvi.png</normaloff>:/plugins/LandSurfaceTemperature/icons/ndvi.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>NDVI</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="12" column="0" colspan="4">
+        <spacer name="horizontalSpacer_22">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="3">
+        <widget class="QPushButton" name="NDVI_btnOutputBrw">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="ndviAddToProject">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0" colspan="4">
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="ndviLblNIR">
+         <property name="text">
+          <string>Near Infrared Band</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QLineEdit" name="ndviLineEditRed"/>
+       </item>
+       <item row="14" column="3">
+        <widget class="QPushButton" name="NDVI_btnClose">
+         <property name="text">
+          <string>Close</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="ndviLblRed">
+         <property name="text">
+          <string>Red Band</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QPushButton" name="ndviBrwNIRBand">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Add result to project</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QLineEdit" name="ndviLineEditNIR">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="NDVI_lblOutputRaster">
+         <property name="text">
+          <string>Output Raster</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QPushButton" name="ndviBrwRedBand">
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" colspan="2">
+        <widget class="QLineEdit" name="ndviLineEditOutputRaster"/>
+       </item>
+       <item row="13" column="0" colspan="4">
+        <spacer name="horizontalSpacer_11">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="14" column="2">
+        <widget class="QPushButton" name="NDVI_btnCalc">
+         <property name="text">
+          <string>Calculate</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_40">
+         <property name="text">
+          <string>Output Format</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0" colspan="4">
+        <spacer name="horizontalSpacer_34">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="ndviFormat"/>
+       </item>
+       <item row="10" column="0" colspan="4">
+        <spacer name="horizontalSpacer_36">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="8" column="0" colspan="4">
+        <spacer name="horizontalSpacer_35">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="7" column="0" colspan="4">
+        <spacer name="horizontalSpacer_37">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_25">
+         <property name="text">
+          <string>Sensor Type</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="ndviSensorType">
+         <item>
+          <property name="text">
+           <string>ASTER</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Landsat</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="ndviLblVNIR">
+         <property name="text">
+          <string>Visibe and Near Infrared Band</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" colspan="2">
+        <widget class="QLineEdit" name="ndviLineEditVNIR"/>
+       </item>
+       <item row="3" column="3">
+        <widget class="QPushButton" name="ndviBrwVNIRBand">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="icon">
+       <iconset>
+        <normaloff>:/plugins/LandSurfaceTemperature/icons/emissivity.png</normaloff>:/plugins/LandSurfaceTemperature/icons/emissivity.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>Land Surface Emissivity</string>
+      </attribute>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>9</y>
+         <width>801</width>
+         <height>401</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab_10">
+        <attribute name="title">
+         <string>Zhang, Wang et al’s  LSE Algorithm</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="1" column="0">
+          <widget class="QLabel" name="LSE_lblOutput_2">
+           <property name="text">
+            <string>Output Raster</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QPushButton" name="lseBrwNDVIZhang">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="LSE_lblNDVI">
+           <property name="text">
+            <string>Normalized Difference Vegetation Index (NDVI) Raster</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QPushButton" name="lseBrwOutputZhang">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_41">
+           <property name="text">
+            <string>Output Format</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="2">
+          <widget class="QPushButton" name="lseCalcZhang">
+           <property name="text">
+            <string>Calculate</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QCheckBox" name="zhangLSEAddToProject">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Add result to project</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0" colspan="4">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="8" column="0" colspan="4">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="QLineEdit" name="zhangNDVILineEdit"/>
+         </item>
+         <item row="9" column="3">
+          <widget class="QPushButton" name="lseZhangClose">
+           <property name="text">
+            <string>Close</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0" colspan="4">
+          <spacer name="horizontalSpacer_23">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="5" column="0" colspan="4">
+          <spacer name="horizontalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="6" column="0" colspan="4">
+          <spacer name="horizontalSpacer_12">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="1" colspan="2">
+          <widget class="QLineEdit" name="zhangOutputLineEdit"/>
+         </item>
+         <item row="2" column="1" colspan="2">
+          <widget class="QComboBox" name="zhangRasterType"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_12">
+        <attribute name="title">
+         <string>NDVI Threshold Algorithm</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_8">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_12">
+           <property name="text">
+            <string>Normalized Difference Vegetation Index (NDVI) Raster</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QPushButton" name="ndviThresholdNDVIBrw">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_13">
+           <property name="text">
+            <string>Output Raster</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QPushButton" name="ndviThresholdLSEBrw">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_14">
+           <property name="text">
+            <string>Output Format</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_15">
+           <property name="text">
+            <string>Add result to project</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QCheckBox" name="lseNDVIthresholdAddToProject">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="2">
+          <widget class="QPushButton" name="ndviThresholdLSECalc">
+           <property name="text">
+            <string>Calculate</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="3">
+          <widget class="QPushButton" name="ndviThresholdLSEClose">
+           <property name="text">
+            <string>Close</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0" colspan="4">
+          <spacer name="horizontalSpacer_9">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="5" column="0" colspan="4">
+          <spacer name="horizontalSpacer_33">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="6" column="0" colspan="4">
+          <spacer name="horizontalSpacer_21">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="7" column="0" colspan="4">
+          <spacer name="horizontalSpacer_20">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="8" column="0" colspan="4">
+          <spacer name="horizontalSpacer_19">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="QLineEdit" name="lseNDVIthresholdNDVI"/>
+         </item>
+         <item row="1" column="1" colspan="2">
+          <widget class="QLineEdit" name="lseNDVIthresholdOutputRaster"/>
+         </item>
+         <item row="2" column="1" colspan="2">
+          <widget class="QComboBox" name="lseNDVIthresholdRasterFormat"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_14">
+        <attribute name="title">
+         <string>ASTER Land Surface Emissivity (LSE)</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_13">
+         <item row="6" column="0" colspan="4">
+          <spacer name="horizontalSpacer_31">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="3">
+          <widget class="QPushButton" name="asterLSEBrwNDVI">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_65">
+           <property name="text">
+            <string>Output Raster</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QCheckBox" name="asterLSEAddToProject">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0" colspan="4">
+          <spacer name="horizontalSpacer_30">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="10" column="3">
+          <widget class="QPushButton" name="asterLSEClose">
+           <property name="text">
+            <string>Close</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="asterLSEBandNo">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>10</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>11</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>12</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>13</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>14</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Normalized Difference Vegetation Index (NDVI)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_67">
+           <property name="text">
+            <string>ASTER TIR Band Number</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1" colspan="2">
+          <widget class="QLineEdit" name="asterLSEoutput"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_66">
+           <property name="text">
+            <string>Add result to project</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QPushButton" name="asterLSEBrwOutput">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0" colspan="4">
+          <spacer name="horizontalSpacer_29">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="9" column="0" colspan="4">
+          <spacer name="horizontalSpacer_26">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="10" column="2">
+          <widget class="QPushButton" name="asterLSECalc">
+           <property name="text">
+            <string>Calculate</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0" colspan="4">
+          <spacer name="horizontalSpacer_25">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="1" colspan="2">
+          <widget class="QLineEdit" name="asterLSEndvi"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_68">
+           <property name="text">
+            <string>Output Format</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QComboBox" name="asterLSErasterType"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="icon">
+       <iconset>
+        <normaloff>:/plugins/LandSurfaceTemperature/icons/algorithms.png</normaloff>:/plugins/LandSurfaceTemperature/icons/algorithms.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>Land Surface Temperature Algorithms</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="QTabWidget" name="monoProgress">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tab_9">
+          <attribute name="title">
+           <string>Planck Equation</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="6" column="1">
+            <widget class="QComboBox" name="plankFormat"/>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_44">
+             <property name="text">
+              <string>Output Format</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0" colspan="4">
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_16">
+             <property name="text">
+              <string>Sensor Type</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1" colspan="2">
+            <widget class="QLineEdit" name="plankOutput"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Land Surface Emissivity Raster</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>Band</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>Add result to project</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="plkBandNo"/>
+           </item>
+           <item row="7" column="1">
+            <widget class="QCheckBox" name="plankAdd">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QPushButton" name="plkLSEBrw">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="3">
+            <widget class="QPushButton" name="plkClose">
+             <property name="text">
+              <string>Close</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0" colspan="4">
+            <spacer name="horizontalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="plankSensor">
+             <item>
+              <property name="text">
+               <string>ASTER</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Landsat TM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Landsat ETM+</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Landsat TIRS</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="1" colspan="2">
+            <widget class="QLineEdit" name="plankBt"/>
+           </item>
+           <item row="10" column="2">
+            <widget class="QPushButton" name="plkCalc">
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Output Raster</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Brightness Temperature Raster</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="2">
+            <widget class="QLineEdit" name="plankLSE"/>
+           </item>
+           <item row="4" column="3">
+            <widget class="QPushButton" name="plkOutBrw">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QPushButton" name="plkBtBrw">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_52">
+             <property name="text">
+              <string>Unit</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QComboBox" name="plankUnit">
+             <item>
+              <property name="text">
+               <string>Kelvin</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Celsius</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fahrenheit</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_6">
+          <attribute name="title">
+           <string>Mono-Window Algorithm</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="4" column="1" colspan="3">
+            <widget class="QLineEdit" name="monoLSE"/>
+           </item>
+           <item row="3" column="4">
+            <widget class="QPushButton" name="monoBrwBT">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0" colspan="5">
+            <spacer name="horizontalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="11" column="2">
+            <widget class="QPushButton" name="monoCalc">
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_22">
+             <property name="text">
+              <string>Land Surface Emissivity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="3">
+            <widget class="QLineEdit" name="monoBriTemp"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>Atmospheric Transmittance</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="monoEffMeanAtmTemp">
+             <property name="text">
+              <string>0.0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="3" colspan="2">
+            <widget class="QPushButton" name="monoClose">
+             <property name="text">
+              <string>Close</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="4">
+            <widget class="QPushButton" name="monoBrwOutputRaster">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0" colspan="5">
+            <spacer name="horizontalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_19">
+             <property name="text">
+              <string>Brightness Temperature (K)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1" colspan="3">
+            <widget class="QLineEdit" name="monoOutputRaster"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_23">
+             <property name="text">
+              <string>Atmospheric Profile</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QComboBox" name="monoFormat"/>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_20">
+             <property name="text">
+              <string>Output Raster</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="monoAtmTran">
+             <property name="maximumSize">
+              <size>
+               <width>16777171</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>0.0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="4">
+            <widget class="QPushButton" name="monoBrwLSE">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_45">
+             <property name="text">
+              <string>Output Format</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QCheckBox" name="monoAddToProj">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="monoAtmProfile">
+             <item>
+              <property name="text">
+               <string/>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>USA 1976</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tropical</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mid-Latitude Summer</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mid-Latitude Winter</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_21">
+             <property name="text">
+              <string>Add result to project</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>Effective Mean Atmospheric Temperature (K)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_53">
+             <property name="text">
+              <string>Unit</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QComboBox" name="monoUnit">
+             <item>
+              <property name="text">
+               <string>Kelvin</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Celsius</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fahrenheit</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_8">
+          <attribute name="title">
+           <string>Radiative Transfer Equation</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_12">
+           <item row="4" column="1" colspan="2">
+            <widget class="QLineEdit" name="rteAtmTrans">
+             <property name="text">
+              <string>0.0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="3">
+            <widget class="QPushButton" name="rteClose">
+             <property name="text">
+              <string>Close</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="2">
+            <widget class="QLineEdit" name="rteDownRad">
+             <property name="text">
+              <string>0.0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="3">
+            <widget class="QPushButton" name="rteBrwLSE">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="2">
+            <widget class="QPushButton" name="rteCalc">
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1" colspan="2">
+            <widget class="QLineEdit" name="rteLSE"/>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="rteSensor">
+             <item>
+              <property name="text">
+               <string>Landsat TM</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Landsat ETM+</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Landsat TIRS</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="rteBandNo"/>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_39">
+             <property name="text">
+              <string>Output Raster</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_34">
+             <property name="text">
+              <string>Upwelling Radiance</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1" colspan="2">
+            <widget class="QLineEdit" name="rteOutput"/>
+           </item>
+           <item row="9" column="1">
+            <widget class="QComboBox" name="rteFormat"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_36">
+             <property name="text">
+              <string>Downwelling Radiance</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="3">
+            <widget class="QPushButton" name="rteBrwOutput">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="QPushButton" name="rteBrwTOA">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_35">
+             <property name="text">
+              <string>Land Surface Emissivity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="label_47">
+             <property name="text">
+              <string>Output Format</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_50">
+             <property name="text">
+              <string>Sensor Type</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1" colspan="2">
+            <widget class="QLineEdit" name="rteTOA"/>
+           </item>
+           <item row="2" column="1" colspan="2">
+            <widget class="QLineEdit" name="rteUpRad">
+             <property name="text">
+              <string>0.0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_49">
+             <property name="text">
+              <string>Top of Atmosphere Radiance (TOA)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QLabel" name="label_38">
+             <property name="text">
+              <string>Add result to project</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_51">
+             <property name="text">
+              <string>Band</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <widget class="QCheckBox" name="rteAddToProject">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_37">
+             <property name="text">
+              <string>Atmospheric Transmittance</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_55">
+             <property name="text">
+              <string>Unit</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QComboBox" name="rteUnit">
+             <item>
+              <property name="text">
+               <string>Kelvin</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Celsius</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fahrenheit</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_7">
+          <attribute name="title">
+           <string>Single Channel Algorithm (Landsat)</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_11">
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_46">
+             <property name="text">
+              <string>Output Format</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_29">
+             <property name="text">
+              <string>Brightness Temperature (K)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QPushButton" name="singleBrwRad">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="2">
+            <widget class="QPushButton" name="singleCalc">
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0" colspan="4">
+            <spacer name="horizontalSpacer_18">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="1" colspan="2">
+            <widget class="QLineEdit" name="singleRad"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_30">
+             <property name="text">
+              <string>Land Surface Emissivity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="2">
+            <widget class="QLineEdit" name="singleBriTemp"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_28">
+             <property name="text">
+              <string>Atmospheric Water Vapour (g per cubic cm)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_32">
+             <property name="text">
+              <string>Add result to project</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1" colspan="2">
+            <widget class="QLineEdit" name="singleLSE"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_33">
+             <property name="text">
+              <string>At Sensor Radiance</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0" colspan="4">
+            <spacer name="horizontalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="7" column="1">
+            <widget class="QComboBox" name="singleFormat"/>
+           </item>
+           <item row="4" column="3">
+            <widget class="QPushButton" name="singleBrwLSE">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="singleWaterVapour">
+             <property name="text">
+              <string>0.0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QCheckBox" name="singleAddToProject">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="QPushButton" name="singleBrwOutput">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QPushButton" name="singleBrwBri">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1" colspan="2">
+            <widget class="QLineEdit" name="singleOutput"/>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_31">
+             <property name="text">
+              <string>Output Raster</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="3">
+            <widget class="QPushButton" name="singleClose">
+             <property name="text">
+              <string>Close</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_54">
+             <property name="text">
+              <string>Unit</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QComboBox" name="singleUnit">
+             <item>
+              <property name="text">
+               <string>Kelvin</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Celsius</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fahrenheit</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_24">
+             <property name="text">
+              <string>Sensor Type</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="singleSensorType">
+             <item>
+              <property name="text">
+               <string>Landsat TM/ETM+</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Landsat TIRS</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_11">
+          <attribute name="title">
+           <string>Single Channel Algorithm (ASTER)</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_10">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_56">
+             <property name="text">
+              <string>At sensor radiance</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_27">
+             <property name="text">
+              <string>Land Surface Emissivity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_58">
+             <property name="text">
+              <string>Output Raster</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="2">
+            <widget class="QPushButton" name="singleAsterCalc">
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1" colspan="2">
+            <widget class="QLineEdit" name="singleAsterOutputLocation"/>
+           </item>
+           <item row="3" column="1" colspan="2">
+            <widget class="QLineEdit" name="singleAsterAtmWaterVapor">
+             <property name="text">
+              <string>0.0</string>
+             </property>
+             <property name="placeholderText">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="2">
+            <widget class="QLineEdit" name="singleAsterLSE"/>
+           </item>
+           <item row="7" column="1" colspan="2">
+            <widget class="QComboBox" name="singleAsterUnit">
+             <item>
+              <property name="text">
+               <string>Kelvin</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Celsius</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fahrenheit</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_60">
+             <property name="text">
+              <string>Output Format</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="label_61">
+             <property name="text">
+              <string>Add Result To Project</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="3">
+            <widget class="QPushButton" name="singleAsterClose">
+             <property name="text">
+              <string>Close</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="singleAsterBrwLSE">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QPushButton" name="singleAsterBrwBriTemp">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0" colspan="4">
+            <spacer name="horizontalSpacer_28">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="1" colspan="2">
+            <widget class="QLineEdit" name="singleAsterBriTemp"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_62">
+             <property name="text">
+              <string>Brightness Temperature</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="singleAsterBrwRadiance">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="0">
+            <widget class="QLabel" name="label_48">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_59">
+             <property name="text">
+              <string>Unit</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0" colspan="4">
+            <spacer name="horizontalSpacer_27">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1" colspan="2">
+            <widget class="QLineEdit" name="singleAsterRadiance"/>
+           </item>
+           <item row="9" column="1">
+            <widget class="QCheckBox" name="singleAsterAddToProject">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1" colspan="2">
+            <widget class="QComboBox" name="singleAsterRasterType"/>
+           </item>
+           <item row="6" column="3">
+            <widget class="QPushButton" name="singleAsterBrwOutput">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_57">
+             <property name="text">
+              <string>Total atmospheric water vapor content (g/cm^2)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_63">
+             <property name="text">
+              <string>MODTRAN4 Database</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QRadioButton" name="singleAsterStd66">
+             <property name="text">
+              <string>STD66</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QRadioButton" name="singleAsterTigr61">
+             <property name="text">
+              <string>TIGR61</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QComboBox" name="singleAsterBandNo">
+             <item>
+              <property name="text">
+               <string/>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>13</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>14</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_64">
+             <property name="text">
+              <string>Band Number</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_15">
+          <attribute name="title">
+           <string>Split Window Algorithm (ASTER)</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_14">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_69">
+             <property name="text">
+              <string>Band 13 Brightness Temperature</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="2">
+            <widget class="QLineEdit" name="lineEditSWAbt13"/>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="swaB13btBrw">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QPushButton" name="swaB14lseBrw">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1" colspan="2">
+            <widget class="QLineEdit" name="b14atmTrans"/>
+           </item>
+           <item row="1" column="1" colspan="2">
+            <widget class="QLineEdit" name="lineEditSWAbt14"/>
+           </item>
+           <item row="6" column="1" colspan="2">
+            <widget class="QLineEdit" name="lineEditSWAOut"/>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="swaB14btBrw">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_76">
+             <property name="text">
+              <string>Unit</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="label_77">
+             <property name="text">
+              <string>Add result to project</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1" colspan="2">
+            <widget class="QComboBox" name="swaUnit">
+             <item>
+              <property name="text">
+               <string>Kelvin</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Celsius</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fahrenheit</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="1" colspan="2">
+            <widget class="QLineEdit" name="lineEditSWAlse13"/>
+           </item>
+           <item row="2" column="3">
+            <widget class="QPushButton" name="swaB13lseBrw">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_72">
+             <property name="text">
+              <string>Atmospheric Transmittance Band 13</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_75">
+             <property name="text">
+              <string>Atmospheric Transmittance Band 14</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_70">
+             <property name="text">
+              <string>Band 14 Brightness Temperature</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_71">
+             <property name="text">
+              <string>Land Surface Emissivity Band 13</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_73">
+             <property name="text">
+              <string>Output Raster</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_74">
+             <property name="text">
+              <string>Land Surface Emissivity Band 14</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="2">
+            <widget class="QLineEdit" name="lineEditSWAlse14"/>
+           </item>
+           <item row="4" column="1" colspan="2">
+            <widget class="QLineEdit" name="b13atmTrans"/>
+           </item>
+           <item row="9" column="1">
+            <widget class="QCheckBox" name="swaAddToProj">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="2">
+            <widget class="QPushButton" name="asterSWAcalc">
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="3">
+            <widget class="QPushButton" name="asterSWAClose">
+             <property name="text">
+              <string>Close</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_78">
+             <property name="text">
+              <string>Output Format</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1" colspan="2">
+            <widget class="QComboBox" name="swaRasterType"/>
+           </item>
+           <item row="6" column="3">
+            <widget class="QPushButton" name="swaLstBrw">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_13">
+      <attribute name="title">
+       <string>About</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_26">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Land Surface Temperature Plugin</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="textBrowser_2">
+         <property name="font">
+          <font>
+           <family>MS Shell Dlg 2</family>
+          </font>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Panel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot; bgcolor=&quot;#f2f1f0&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;The plugin has been written by &lt;/span&gt;&lt;a href=&quot;https://www.researchgate.net/profile/Milton_Isaya&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;Milton Isaya Ndossi&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt; (milton_issaya@hotmail.com) and &lt;/span&gt;&lt;a href=&quot;https://www.researchgate.net/profile/Ugur_Avdan&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;Ugur Avdan&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt; (uavdan@anadolu.edu.tr)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;The plugin allows easy extraction of LST from Landsat 5 TM, Landsat 7 ETM+, Landsat 8 TIRS and the ASTER instrument. It allows the use of the Radiative Transfer Equation (RTE), the Single Channel Algorithm (SCA) for Landsat, Mono Window Algorithm (MWA), the Split Window Algorithm (SWA) and the Planck function.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;The plugin also has the ability to calculate radiance, brightness temperature, Normalized Difference Vegetation Index (NDVI) and estimate the Land Surface Emissivity (LSE) through the NDVI based approach.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;Please click &lt;/span&gt;&lt;a href=&quot;http://qgislstplugin.blogspot.com.tr/&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;here&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt; for the user manual of the plugin&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt; font-style:italic;&quot;&gt;This plugin requires the installation of GDAL/OGR and Numpy.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Droid Sans'; font-size:10pt; font-style:italic;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;The Land Surface Temperature Estimation Plugin is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;&lt;br /&gt;The Land Surface Temperature Estimation Plugin is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with Land Surface Temperature Estimation Plugin. If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Droid Sans'; font-size:10pt;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="openExternalLinks">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>mainTabWiget</tabstop>
+  <tabstop>ndviLineEditRed</tabstop>
+  <tabstop>ndviLineEditNIR</tabstop>
+  <tabstop>ndviLineEditOutputRaster</tabstop>
+  <tabstop>ndviFormat</tabstop>
+  <tabstop>ndviAddToProject</tabstop>
+  <tabstop>NDVI_btnCalc</tabstop>
+  <tabstop>ndviBrwRedBand</tabstop>
+  <tabstop>ndviBrwNIRBand</tabstop>
+  <tabstop>NDVI_btnOutputBrw</tabstop>
+  <tabstop>NDVI_btnClose</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>zhangNDVILineEdit</tabstop>
+  <tabstop>zhangOutputLineEdit</tabstop>
+  <tabstop>zhangRasterType</tabstop>
+  <tabstop>zhangLSEAddToProject</tabstop>
+  <tabstop>lseCalcZhang</tabstop>
+  <tabstop>lseBrwNDVIZhang</tabstop>
+  <tabstop>lseBrwOutputZhang</tabstop>
+  <tabstop>lseZhangClose</tabstop>
+  <tabstop>lseNDVIthresholdNDVI</tabstop>
+  <tabstop>lseNDVIthresholdOutputRaster</tabstop>
+  <tabstop>lseNDVIthresholdRasterFormat</tabstop>
+  <tabstop>lseNDVIthresholdAddToProject</tabstop>
+  <tabstop>ndviThresholdLSECalc</tabstop>
+  <tabstop>ndviThresholdNDVIBrw</tabstop>
+  <tabstop>ndviThresholdLSEBrw</tabstop>
+  <tabstop>ndviThresholdLSEClose</tabstop>
+  <tabstop>radSensorType</tabstop>
+  <tabstop>radBandNo</tabstop>
+  <tabstop>radGain</tabstop>
+  <tabstop>radThermalBand</tabstop>
+  <tabstop>radOutputRaster</tabstop>
+  <tabstop>radMetadata</tabstop>
+  <tabstop>radOffset</tabstop>
+  <tabstop>radFormat</tabstop>
+  <tabstop>radAddToQGIS</tabstop>
+  <tabstop>radCalc</tabstop>
+  <tabstop>radBrwThermal</tabstop>
+  <tabstop>radBrwOutput</tabstop>
+  <tabstop>radBrwMeta</tabstop>
+  <tabstop>rad_btnClose</tabstop>
+  <tabstop>btSensorType</tabstop>
+  <tabstop>btBandNo</tabstop>
+  <tabstop>btRadianceRaster</tabstop>
+  <tabstop>btOutputRaster</tabstop>
+  <tabstop>btFormat</tabstop>
+  <tabstop>btAddToProject</tabstop>
+  <tabstop>btCalculate</tabstop>
+  <tabstop>btRadRasterBrw</tabstop>
+  <tabstop>btOutRasterBrw</tabstop>
+  <tabstop>bt_btnClose</tabstop>
+  <tabstop>monoProgress</tabstop>
+  <tabstop>plankSensor</tabstop>
+  <tabstop>plkBandNo</tabstop>
+  <tabstop>plankBt</tabstop>
+  <tabstop>plankLSE</tabstop>
+  <tabstop>plankOutput</tabstop>
+  <tabstop>plankUnit</tabstop>
+  <tabstop>plankFormat</tabstop>
+  <tabstop>plankAdd</tabstop>
+  <tabstop>plkCalc</tabstop>
+  <tabstop>plkBtBrw</tabstop>
+  <tabstop>plkLSEBrw</tabstop>
+  <tabstop>plkOutBrw</tabstop>
+  <tabstop>plkClose</tabstop>
+  <tabstop>monoAtmTran</tabstop>
+  <tabstop>monoEffMeanAtmTemp</tabstop>
+  <tabstop>monoAtmProfile</tabstop>
+  <tabstop>monoBriTemp</tabstop>
+  <tabstop>monoLSE</tabstop>
+  <tabstop>monoUnit</tabstop>
+  <tabstop>monoOutputRaster</tabstop>
+  <tabstop>monoFormat</tabstop>
+  <tabstop>monoAddToProj</tabstop>
+  <tabstop>monoBrwBT</tabstop>
+  <tabstop>monoBrwLSE</tabstop>
+  <tabstop>monoBrwOutputRaster</tabstop>
+  <tabstop>monoCalc</tabstop>
+  <tabstop>monoClose</tabstop>
+  <tabstop>singleWaterVapour</tabstop>
+  <tabstop>singleRad</tabstop>
+  <tabstop>singleBriTemp</tabstop>
+  <tabstop>singleLSE</tabstop>
+  <tabstop>singleOutput</tabstop>
+  <tabstop>singleUnit</tabstop>
+  <tabstop>singleFormat</tabstop>
+  <tabstop>singleAddToProject</tabstop>
+  <tabstop>singleBrwRad</tabstop>
+  <tabstop>singleBrwBri</tabstop>
+  <tabstop>singleBrwLSE</tabstop>
+  <tabstop>singleBrwOutput</tabstop>
+  <tabstop>singleCalc</tabstop>
+  <tabstop>singleClose</tabstop>
+  <tabstop>rteSensor</tabstop>
+  <tabstop>rteBandNo</tabstop>
+  <tabstop>rteUpRad</tabstop>
+  <tabstop>rteDownRad</tabstop>
+  <tabstop>rteAtmTrans</tabstop>
+  <tabstop>rteTOA</tabstop>
+  <tabstop>rteLSE</tabstop>
+  <tabstop>rteOutput</tabstop>
+  <tabstop>rteUnit</tabstop>
+  <tabstop>rteFormat</tabstop>
+  <tabstop>rteAddToProject</tabstop>
+  <tabstop>rteCalc</tabstop>
+  <tabstop>rteBrwTOA</tabstop>
+  <tabstop>rteBrwLSE</tabstop>
+  <tabstop>rteBrwOutput</tabstop>
+  <tabstop>rteClose</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
