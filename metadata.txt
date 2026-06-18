@@ -1,0 +1,20 @@
+[general]
+name=Land Surface Temperature
+qgisMinimumVersion=3.0
+description=This tool extracts Land Surface Temperature from satellite imagery
+version=1.0
+author=Milton Isaya
+email=milton_issaya@hotmail.com
+
+about=This tool extracts land surface temperature from ASTER, Landsat 5, Landsat 7 and Landsat 8 imagery. It also calculates land surface emissivity by using the NDVI approach. All algorithms are available in the Processing toolbox.
+
+tracker=https://github.com/miltonisaya/landSurfaceTemperature/issues
+repository=https://github.com/miltonisaya/landSurfaceTemperature
+
+tags=raster,temperature,remote sensing,landsat,aster,ndvi,emissivity
+homepage=https://github.com/miltonisaya/landSurfaceTemperature
+category=Raster
+icon=icon.png
+hasProcessingProvider=yes
+experimental=False
+deprecated=False
