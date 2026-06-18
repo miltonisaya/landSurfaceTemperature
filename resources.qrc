@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="/plugins/LandSurfaceTemperature">
+    <file>icons/ndvi.png</file>
+    <file>icons/landsat_8.ico</file>
+    <file>icons/accuracy.png</file>
+    <file>icons/algorithms.png</file>
+    <file>icons/bt.png</file>
+    <file>icons/emissivity.png</file>
+    <file>icons/fahrenheit.png</file>
+    <file>icons/radiance.png</file>
+    <file>icons/temp_conv.png</file>
+  </qresource>
+</RCC>
