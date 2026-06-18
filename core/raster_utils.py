@@ -1,20 +1,52 @@
 # -*- coding: utf-8 -*-
 """GDAL raster processing utilities."""
 
+import os
+
 from osgeo import gdal
+
+# Maps common file extensions to their GDAL driver names.
+# Extensions not listed here fall back to GeoTIFF.
+_EXTENSION_DRIVERS = {
+    '.tif':  'GTiff',
+    '.tiff': 'GTiff',
+    '.img':  'HFA',
+    '.asc':  'AAIGrid',
+    '.nc':   'netCDF',
+    '.vrt':  'VRT',
+    '.sdat': 'SAGA',
+}
+
+
+def _driver_for_path(path):
+    ext = os.path.splitext(path)[1].lower()
+    return _EXTENSION_DRIVERS.get(ext, 'GTiff')
 
 
 def create_output_raster(path, ref_ds):
-    """Create a Float32 GeoTIFF matching a reference dataset's geotransform and projection.
+    """Create a Float32 output raster matching a reference dataset's geotransform and projection.
+
+    The GDAL driver is chosen from the output file extension; unknown
+    extensions fall back to GeoTIFF.
 
     :param path: Output file path.
     :param ref_ds: Reference GDAL dataset.
     :returns: New GDAL dataset.
+    :raises RuntimeError: If GDAL cannot create the output file.
     """
-    driver = gdal.GetDriverByName('GTiff')
+    driver_name = _driver_for_path(path)
+    driver = gdal.GetDriverByName(driver_name)
+    if driver is None:
+        driver = gdal.GetDriverByName('GTiff')
+
     cols = ref_ds.RasterXSize
     rows = ref_ds.RasterYSize
     out_ds = driver.Create(path, cols, rows, 1, gdal.GDT_Float32)
+    if out_ds is None:
+        raise RuntimeError(
+            'GDAL could not create output raster at "{}". '
+            'Check the path and that the format is writable.'.format(path)
+        )
     out_ds.SetGeoTransform(ref_ds.GetGeoTransform())
     out_ds.SetProjection(ref_ds.GetProjection())
     return out_ds
