@@ -1,41 +1,128 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Land Surface Temperature - QGIS Plugin</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 860px; margin: 40px auto; color: #333; line-height: 1.6; }
+    h1 { color: #2c7a2c; }
+    h2 { color: #444; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+    h3 { color: #555; margin-bottom: 4px; }
+    code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+    pre  { background: #f4f4f4; padding: 12px; border-radius: 4px; overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+    th { background: #f0f0f0; }
+    ul, ol { padding-left: 1.4em; }
+    .meta { color: #777; font-size: 0.9em; }
+  </style>
+</head>
 <body>
-<h3>Plugin Builder Results</h3>
 
-Congratulations! You just built a plugin for QGIS!<br/><br />
-
-<div id='help' style='font-size:.9em;'>
-Your plugin <b>LandSurfaceTemperature</b> was created in:<br>
-&nbsp;&nbsp;<b>C:\Users\Milton\.qgis2\python\plugins\LandSurfaceTemperature</b>
-<p>
-Your QGIS plugin directory is located at:<br>
-&nbsp;&nbsp;<b>C:/Users/Milton/.qgis2/python/plugins</b>
-<p>
-<h3>What's Next</h3>
-<ol>
-    <li>In your plugin directory, compile the resources file using pyrcc4 (simply run <b>make</b> if you have automake or use <b>pb_tool</b>)
-    <li>Test the generated sources using <b>make test</b> (or run tests from your IDE)
-    <li>Copy the entire directory containing your new plugin to the QGIS plugin directory (see Notes below)
-    <li>Test the plugin by enabling it in the QGIS plugin manager
-    <li>Customize it by editing the implementation file <b>lst_tool.py</b>
-    <li>Create your own custom icon, replacing the default <b>icon.png</b>
-    <li>Modify your user interface by opening <b>lst_tool_dialog_base.ui</b> in Qt Designer
-</ol>
-Notes:
-<ul>
-    <li>You can use the <b>Makefile</b> to compile and deploy when you
-        make changes. This requires GNU make (gmake). The Makefile is ready to use, however you 
-        will have to edit it to add addional Python source files, dialogs, and translations.
-    <li>You can also use <b>pb_tool</b> to compile and deploy your plugin. Tweak the <i>pb_tool.cfg</i> file included with your plugin as you add files. Install <b>pb_tool</b> using 
-        <i>pip</i> or <i>easy_install</i>. See <a href="http://loc8.cc/pb_tool">http://loc8.cc/pb_tool</a> for more information.
-</ul>
-</div>
-<div style='font-size:.9em;'>
-<p>
-For information on writing PyQGIS code, see <a href="http://loc8.cc/pyqgis_resources">http://loc8.cc/pyqgis_resources</a> for a list of resources.
+<h1>Land Surface Temperature</h1>
+<p class="meta">
+  A QGIS 3 plugin &mdash; Author: Milton Isaya &mdash; License: GNU GPL v2+<br>
+  <a href="https://github.com/miltonisaya/landSurfaceTemperature">https://github.com/miltonisaya/landSurfaceTemperature</a>
 </p>
-</div>
-<img src="http://geoapt.com/geoapt_logo_p.png" alt='GeoApt LLC' title='GeoApt LLC' align='absmiddle'>
-&copy;2011-2015 GeoApt LLC - geoapt.com 
+
+<h2>Overview</h2>
+<p>
+  This plugin provides a suite of algorithms in the QGIS Processing toolbox for deriving
+  <strong>Land Surface Temperature (LST)</strong> from thermal infrared satellite imagery.
+  It supports <strong>Landsat 5 TM</strong>, <strong>Landsat 7 ETM+</strong>,
+  <strong>Landsat 8 TIRS</strong>, and <strong>ASTER</strong> sensors.
+</p>
+<p>All algorithms follow a step-by-step workflow:</p>
+<ol>
+  <li>Compute NDVI (vegetation index)</li>
+  <li>Convert thermal DN to spectral radiance</li>
+  <li>Convert radiance to brightness temperature</li>
+  <li>Estimate land surface emissivity (LSE)</li>
+  <li>Retrieve land surface temperature (LST)</li>
+</ol>
+
+<h2>Supported Sensors</h2>
+<table>
+  <tr><th>Sensor</th><th>Thermal Band(s)</th></tr>
+  <tr><td>Landsat 5 TM</td><td>Band 6</td></tr>
+  <tr><td>Landsat 7 ETM+</td><td>Band 6 (high gain / low gain)</td></tr>
+  <tr><td>Landsat 8 TIRS</td><td>Bands 10 and 11</td></tr>
+  <tr><td>ASTER</td><td>TIR bands 10&ndash;14 / VNIR bands 1&ndash;3</td></tr>
+</table>
+
+<h2>Algorithms</h2>
+
+<h3>Vegetation Indices</h3>
+<table>
+  <tr><th>Algorithm</th><th>Description</th></tr>
+  <tr><td>Landsat NDVI</td><td>NDVI from separate Landsat red and NIR band rasters</td></tr>
+  <tr><td>ASTER NDVI</td><td>NDVI from ASTER VNIR multi-band raster (bands 2 and 3)</td></tr>
+</table>
+
+<h3>Radiance</h3>
+<table>
+  <tr><th>Algorithm</th><th>Description</th></tr>
+  <tr><td>TM Radiance</td><td>Landsat 5 TM thermal band DN to spectral radiance using MTL metadata</td></tr>
+  <tr><td>ETM+ Radiance</td><td>Landsat 7 ETM+ thermal band DN to spectral radiance (high/low gain)</td></tr>
+  <tr><td>TIRS Radiance</td><td>Landsat 8 TIRS bands 10/11 DN to spectral radiance with optional calibration offset</td></tr>
+  <tr><td>ASTER Radiance</td><td>ASTER TIR bands 10&ndash;14 DN to spectral radiance using unit conversion coefficients</td></tr>
+</table>
+
+<h3>Brightness Temperature</h3>
+<table>
+  <tr><th>Algorithm</th><th>Description</th></tr>
+  <tr><td>Brightness Temperature</td><td>Converts spectral radiance to brightness temperature using sensor K1/K2 constants: BT = K2 / ln(K1/L + 1)</td></tr>
+</table>
+
+<h3>Land Surface Emissivity</h3>
+<table>
+  <tr><th>Algorithm</th><th>Description</th></tr>
+  <tr><td>Zhang LSE</td><td>NDVI-threshold classification method (Zhang et al.)</td></tr>
+  <tr><td>NDVI Threshold LSE</td><td>NDVI threshold with proportion of vegetation (Pv) and cavity effect correction</td></tr>
+  <tr><td>ASTER LSE</td><td>ASTER band-specific LSE using NDVI-derived Pv and MODIS emissivity library coefficients</td></tr>
+</table>
+
+<h3>Land Surface Temperature</h3>
+<table>
+  <tr><th>Algorithm</th><th>Description</th></tr>
+  <tr><td>Planck Equation LST</td><td>Emissivity-corrected Planck inversion for all sensors</td></tr>
+  <tr><td>Mono-Window Algorithm</td><td>Qin et al. (2001) — requires atmospheric transmittance and near-surface air temperature</td></tr>
+  <tr><td>Single Channel Algorithm</td><td>Jimenez-Munoz &amp; Sobrino (2003) — requires atmospheric water vapor content</td></tr>
+  <tr><td>Radiative Transfer Equation</td><td>Full atmospheric correction using upwelling and downwelling radiance</td></tr>
+  <tr><td>ASTER Single Channel</td><td>ASTER bands 13/14 LST using MODTRAN4 atmospheric database parameters</td></tr>
+  <tr><td>ASTER Split-Window</td><td>Combines ASTER bands 13 and 14 brightness temperature and emissivity</td></tr>
+</table>
+
+<h2>Installation</h2>
+<ol>
+  <li>Download or clone this repository.</li>
+  <li>Copy the entire folder into your QGIS 3 Python plugin directory:
+    <pre>Linux/macOS: ~/.local/share/QGIS/QGIS3/profiles/default/python/plugins/
+Windows:     %APPDATA%\QGIS\QGIS3\profiles\default\python\plugins\</pre>
+  </li>
+  <li>Start QGIS and enable the plugin via <strong>Plugins &gt; Manage and Install Plugins</strong>.</li>
+  <li>The algorithms will appear in <strong>Processing &gt; Toolbox</strong> under <em>Land Surface Temperature</em>.</li>
+</ol>
+
+<h2>Compiling Resources (optional)</h2>
+<p>If you modify icons or <code>resources.qrc</code>, recompile with:</p>
+<pre>pyrcc5 -o resources.py resources.qrc</pre>
+
+<h2>Requirements</h2>
+<ul>
+  <li>QGIS &ge; 3.0</li>
+  <li>Python &ge; 3.6</li>
+  <li>GDAL/OGR (included with QGIS)</li>
+  <li>NumPy (included with QGIS)</li>
+</ul>
+
+<h2>License</h2>
+<p>
+  This program is free software: you can redistribute it and/or modify it under the terms of the
+  <strong>GNU General Public License</strong> as published by the Free Software Foundation,
+  either version 2 of the License, or (at your option) any later version.
+</p>
+<p class="meta">Copyright &copy; 2015 Milton Isaya / Anadolu University</p>
+
 </body>
 </html>
