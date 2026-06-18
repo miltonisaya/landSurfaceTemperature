@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Landsat TIRS (Landsat 8) radiance calculation algorithm."""
 
+import os
+
 import numpy as np
 from osgeo import gdal
 from qgis.core import (
@@ -12,6 +14,7 @@ from qgis.core import (
     QgsProcessingParameterRasterDestination,
     QgsProcessingException,
 )
+from qgis.PyQt.QtGui import QIcon
 from ..core.raster_utils import create_output_raster, iterate_blocks, finalize_raster, count_blocks
 from ..core.metadata_parser import parse_landsat_metadata
 
@@ -39,6 +42,9 @@ class TirsRadianceAlgorithm(QgsProcessingAlgorithm):
 
     def shortHelpString(self):
         return 'Calculates spectral radiance from Landsat 8 TIRS thermal bands using metadata calibration values.'
+
+    def icon(self):
+        return QIcon(os.path.join(os.path.dirname(__file__), '..', 'icons', 'radiance.png'))
 
     def createInstance(self):
         return TirsRadianceAlgorithm()
