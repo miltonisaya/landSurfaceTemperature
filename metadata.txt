@@ -1,17 +1,41 @@
 [general]
 name=Land Surface Temperature
 qgisMinimumVersion=3.0
-description=This tool extracts Land Surface Temperature from satellite imagery
+description=Extracts Land Surface Temperature from Landsat and ASTER satellite imagery
 version=1.0
 author=Milton Isaya
-email=milton_issaya@hotmail.com
+email=miltonisaiah@gmail.com
 
-about=This tool extracts land surface temperature from ASTER, Landsat 5, Landsat 7 and Landsat 8 imagery. It also calculates land surface emissivity by using the NDVI approach. All algorithms are available in the Processing toolbox.
+about=This plugin provides a suite of algorithms in the QGIS Processing toolbox for deriving Land Surface Temperature (LST) from thermal infrared satellite imagery. It supports Landsat 5 TM, Landsat 7 ETM+, Landsat 8 TIRS, and ASTER sensors.
+
+    Workflow:
+    1. Compute NDVI from red and near-infrared bands
+    2. Convert thermal band digital numbers to spectral radiance
+    3. Convert radiance to brightness temperature using sensor K1/K2 constants
+    4. Estimate land surface emissivity using NDVI-based methods
+    5. Retrieve land surface temperature
+
+    Available algorithms:
+    Vegetation Indices  : Landsat NDVI, ASTER NDVI
+    Radiance            : TM Radiance, ETM+ Radiance, TIRS Radiance, ASTER Radiance
+    Brightness Temp.    : Brightness Temperature (all sensors)
+    Emissivity          : Zhang LSE, NDVI Threshold LSE, ASTER LSE
+    LST                 : Planck Equation, Mono-Window Algorithm (Qin et al. 2001),
+                          Single Channel Algorithm (Jimenez-Munoz & Sobrino 2003),
+                          Radiative Transfer Equation, ASTER Single Channel,
+                          ASTER Split-Window
+
+    Temperature output available in Kelvin, Celsius, or Fahrenheit.
 
 tracker=https://github.com/miltonisaya/landSurfaceTemperature/issues
 repository=https://github.com/miltonisaya/landSurfaceTemperature
 
-tags=raster,temperature,remote sensing,landsat,aster,ndvi,emissivity
+changelog=
+    1.0 - Migrated to QGIS 3 Processing Framework. All 16 algorithms are now
+          available in the Processing toolbox. Removed QGIS 2 dialog-based UI.
+          Output format is determined from the selected file extension.
+
+tags=raster,temperature,land surface temperature,LST,remote sensing,landsat,aster,ndvi,emissivity,thermal,satellite,brightness temperature
 homepage=https://github.com/miltonisaya/landSurfaceTemperature
 category=Raster
 icon=icons/algorithms.png
