@@ -86,7 +86,6 @@ class AsterSingleChannelAlgorithm(QgsProcessingAlgorithm):
         p2 = params['p2'][0] * w**2 + params['p2'][1] * w + params['p2'][2]
         p3 = params['p3'][0] * w**2 + params['p3'][1] * w + params['p3'][2]
 
-        K1 = SENSOR_K_CONSTANTS['ASTER'][band_no]['K1']
         K2 = SENSOR_K_CONSTANTS['ASTER'][band_no]['K2']
 
         ds_rad = gdal.Open(rad_layer.source(), gdal.GA_ReadOnly)
