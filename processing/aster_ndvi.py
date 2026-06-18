@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """ASTER NDVI calculation algorithm."""
 
+import os
+
 import numpy as np
 from osgeo import gdal
 from qgis.core import (
@@ -9,6 +11,7 @@ from qgis.core import (
     QgsProcessingParameterRasterDestination,
     QgsProcessingException,
 )
+from qgis.PyQt.QtGui import QIcon
 from ..core.raster_utils import create_output_raster, iterate_blocks, finalize_raster, count_blocks
 
 
@@ -30,6 +33,9 @@ class AsterNdviAlgorithm(QgsProcessingAlgorithm):
 
     def shortHelpString(self):
         return 'Calculates NDVI from an ASTER VNIR raster (band 2 = Red, band 3 = NIR).'
+
+    def icon(self):
+        return QIcon(os.path.join(os.path.dirname(__file__), '..', 'icons', 'ndvi.png'))
 
     def createInstance(self):
         return AsterNdviAlgorithm()
