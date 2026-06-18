@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """ASTER LSE estimation algorithm."""
 
+import os
+
 import numpy as np
 from osgeo import gdal
 from qgis.core import (
@@ -10,6 +12,7 @@ from qgis.core import (
     QgsProcessingParameterRasterDestination,
     QgsProcessingException,
 )
+from qgis.PyQt.QtGui import QIcon
 from ..core.raster_utils import create_output_raster, iterate_blocks, finalize_raster, count_blocks
 from ..core.constants import ASTER_LSE_COEFFICIENTS
 
@@ -35,6 +38,9 @@ class AsterLseAlgorithm(QgsProcessingAlgorithm):
 
     def shortHelpString(self):
         return 'Estimates land surface emissivity for ASTER TIR bands using NDVI-based approach with MODIS emissivity library values.'
+
+    def icon(self):
+        return QIcon(os.path.join(os.path.dirname(__file__), '..', 'icons', 'emissivity.png'))
 
     def createInstance(self):
         return AsterLseAlgorithm()
