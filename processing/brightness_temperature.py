@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Brightness temperature calculation algorithm."""
 
+import os
+
 import numpy as np
 from osgeo import gdal
 from qgis.core import (
@@ -10,6 +12,7 @@ from qgis.core import (
     QgsProcessingParameterRasterDestination,
     QgsProcessingException,
 )
+from qgis.PyQt.QtGui import QIcon
 from ..core.raster_utils import create_output_raster, iterate_blocks, finalize_raster, count_blocks
 from ..core.constants import SENSOR_K_CONSTANTS
 
@@ -37,6 +40,9 @@ class BrightnessTemperatureAlgorithm(QgsProcessingAlgorithm):
 
     def shortHelpString(self):
         return 'Calculates brightness temperature from spectral radiance using K1/K2 calibration constants. BT = K2 / ln(K1/L + 1)'
+
+    def icon(self):
+        return QIcon(os.path.join(os.path.dirname(__file__), '..', 'icons', 'bt.png'))
 
     def createInstance(self):
         return BrightnessTemperatureAlgorithm()
