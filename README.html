@@ -27,18 +27,34 @@
 
 <h2>Overview</h2>
 <p>
-  This plugin provides a suite of algorithms in the QGIS Processing toolbox for deriving
-  <strong>Land Surface Temperature (LST)</strong> from thermal infrared satellite imagery.
+  This plugin provides a complete, step-by-step workflow for deriving
+  <strong>Land Surface Temperature (LST)</strong> from satellite thermal infrared imagery
+  using <strong>16 algorithms</strong> in the QGIS Processing toolbox.
   It supports <strong>Landsat 5 TM</strong>, <strong>Landsat 7 ETM+</strong>,
   <strong>Landsat 8 TIRS</strong>, and <strong>ASTER</strong> sensors.
 </p>
-<p>All algorithms follow a step-by-step workflow:</p>
+<p>
+  Input imagery can be obtained free of charge from
+  <a href="https://earthexplorer.usgs.gov">USGS EarthExplorer</a> or
+  <a href="https://earthdata.nasa.gov">NASA Earthdata</a>.
+</p>
+
+<h2>Applications</h2>
+<ul>
+  <li>Urban heat island analysis</li>
+  <li>Drought and vegetation stress monitoring</li>
+  <li>Agricultural water management</li>
+  <li>Wildfire burn severity assessment</li>
+  <li>Climate and land use change studies</li>
+</ul>
+
+<h2>Workflow</h2>
 <ol>
-  <li>Compute NDVI (vegetation index)</li>
-  <li>Convert thermal DN to spectral radiance</li>
-  <li>Convert radiance to brightness temperature</li>
-  <li>Estimate land surface emissivity (LSE)</li>
-  <li>Retrieve land surface temperature (LST)</li>
+  <li>Compute NDVI from red and near-infrared bands</li>
+  <li>Convert thermal band digital numbers to spectral radiance</li>
+  <li>Convert radiance to at-sensor brightness temperature using K1/K2 calibration constants</li>
+  <li>Estimate land surface emissivity (LSE) using NDVI-based classification</li>
+  <li>Retrieve land surface temperature using one of six LST algorithms</li>
 </ol>
 
 <h2>Supported Sensors</h2>
@@ -62,16 +78,16 @@
 <h3>Radiance</h3>
 <table>
   <tr><th>Algorithm</th><th>Description</th></tr>
-  <tr><td>TM Radiance</td><td>Landsat 5 TM thermal band DN to spectral radiance using MTL metadata</td></tr>
-  <tr><td>ETM+ Radiance</td><td>Landsat 7 ETM+ thermal band DN to spectral radiance (high/low gain)</td></tr>
-  <tr><td>TIRS Radiance</td><td>Landsat 8 TIRS bands 10/11 DN to spectral radiance with optional calibration offset</td></tr>
+  <tr><td>TM Radiance (L5)</td><td>Landsat 5 TM thermal band DN to spectral radiance using MTL metadata</td></tr>
+  <tr><td>ETM+ Radiance (L7)</td><td>Landsat 7 ETM+ thermal band DN to spectral radiance (high/low gain)</td></tr>
+  <tr><td>TIRS Radiance (L8)</td><td>Landsat 8 TIRS bands 10/11 DN to spectral radiance with optional calibration offset</td></tr>
   <tr><td>ASTER Radiance</td><td>ASTER TIR bands 10&ndash;14 DN to spectral radiance using unit conversion coefficients</td></tr>
 </table>
 
 <h3>Brightness Temperature</h3>
 <table>
   <tr><th>Algorithm</th><th>Description</th></tr>
-  <tr><td>Brightness Temperature</td><td>Converts spectral radiance to brightness temperature using sensor K1/K2 constants: BT = K2 / ln(K1/L + 1)</td></tr>
+  <tr><td>Brightness Temperature</td><td>Converts spectral radiance to at-sensor brightness temperature using K1/K2 calibration constants: BT = K2 / ln(K1/L + 1)</td></tr>
 </table>
 
 <h3>Land Surface Emissivity</h3>
@@ -86,12 +102,14 @@
 <table>
   <tr><th>Algorithm</th><th>Description</th></tr>
   <tr><td>Planck Equation LST</td><td>Emissivity-corrected Planck inversion for all sensors</td></tr>
-  <tr><td>Mono-Window Algorithm</td><td>Qin et al. (2001) — requires atmospheric transmittance and near-surface air temperature</td></tr>
-  <tr><td>Single Channel Algorithm</td><td>Jimenez-Munoz &amp; Sobrino (2003) — requires atmospheric water vapor content</td></tr>
+  <tr><td>Mono-Window Algorithm</td><td>Qin et al. (2001) &mdash; requires atmospheric transmittance and near-surface air temperature</td></tr>
+  <tr><td>Single Channel Algorithm</td><td>Jimenez-Munoz &amp; Sobrino (2003) &mdash; requires atmospheric water vapor content</td></tr>
   <tr><td>Radiative Transfer Equation</td><td>Full atmospheric correction using upwelling and downwelling radiance</td></tr>
   <tr><td>ASTER Single Channel</td><td>ASTER bands 13/14 LST using MODTRAN4 atmospheric database parameters</td></tr>
   <tr><td>ASTER Split-Window</td><td>Combines ASTER bands 13 and 14 brightness temperature and emissivity</td></tr>
 </table>
+
+<p>Temperature output available in <strong>Kelvin</strong>, <strong>Celsius</strong>, or <strong>Fahrenheit</strong>.</p>
 
 <h2>Installation</h2>
 <ol>
