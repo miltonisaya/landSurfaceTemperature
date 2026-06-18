@@ -1,0 +1,85 @@
+# -*- coding: utf-8 -*-
+"""Landsat TM (Landsat 5) radiance calculation algorithm."""
+
+import numpy as np
+from osgeo import gdal
+from qgis.core import (
+    QgsProcessingAlgorithm,
+    QgsProcessingParameterRasterLayer,
+    QgsProcessingParameterFile,
+    QgsProcessingParameterRasterDestination,
+    QgsProcessingException,
+)
+from ..core.raster_utils import create_output_raster, iterate_blocks, finalize_raster, count_blocks
+from ..core.metadata_parser import parse_landsat_metadata
+
+
+class TmRadianceAlgorithm(QgsProcessingAlgorithm):
+    THERMAL_BAND = 'THERMAL_BAND'
+    METADATA = 'METADATA'
+    OUTPUT = 'OUTPUT'
+
+    def name(self):
+        return 'tm_radiance'
+
+    def displayName(self):
+        return 'TM Radiance'
+
+    def group(self):
+        return 'Radiance'
+
+    def groupId(self):
+        return 'radiance'
+
+    def shortHelpString(self):
+        return 'Calculates spectral radiance from Landsat 5 TM thermal band using metadata calibration values.'
+
+    def createInstance(self):
+        return TmRadianceAlgorithm()
+
+    def initAlgorithm(self, config=None):
+        self.addParameter(QgsProcessingParameterRasterLayer(self.THERMAL_BAND, 'Thermal band (band 6)'))
+        self.addParameter(QgsProcessingParameterFile(self.METADATA, 'Metadata file (MTL)', extension='txt'))
+        self.addParameter(QgsProcessingParameterRasterDestination(self.OUTPUT, 'Radiance output'))
+
+    def processAlgorithm(self, parameters, context, feedback):
+        thermal_layer = self.parameterAsRasterLayer(parameters, self.THERMAL_BAND, context)
+        metadata_path = self.parameterAsFile(parameters, self.METADATA, context)
+        output_path = self.parameterAsOutputLayer(parameters, self.OUTPUT, context)
+
+        meta = parse_landsat_metadata(metadata_path, 'Landsat 5')
+        QCALMAX = meta['QCALMAX']
+        QCALMIN = meta['QCALMIN']
+        LMAX = meta['LMAX']
+        LMIN = meta['LMIN']
+
+        ds = gdal.Open(thermal_layer.source(), gdal.GA_ReadOnly)
+        if ds is None:
+            raise QgsProcessingException('Failed to open thermal band')
+
+        band = ds.GetRasterBand(1)
+        cols = ds.RasterXSize
+        rows = ds.RasterYSize
+
+        out_ds = create_output_raster(output_path, ds)
+        out_band = out_ds.GetRasterBand(1)
+
+        m = (LMAX - QCALMIN) / (QCALMAX - QCALMIN)
+        total = count_blocks(rows, cols)
+        current = 0
+
+        for j, i, num_cols, num_rows in iterate_blocks(rows, cols):
+            if feedback.isCanceled():
+                break
+            data = band.ReadAsArray(j, i, num_cols, num_rows).astype('f')
+            radiance = np.multiply(m, np.subtract(data, QCALMIN))
+            radiance = np.add(radiance, LMIN)
+            out_band.WriteArray(radiance, j, i)
+            current += 1
+            feedback.setProgress(int(current / total * 100))
+
+        finalize_raster(out_ds)
+        out_ds = None
+        ds = None
+
+        return {self.OUTPUT: output_path}
