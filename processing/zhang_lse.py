@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Zhang LSE estimation algorithm."""
 
+import os
+
 import numpy as np
 from osgeo import gdal
 from qgis.core import (
@@ -9,6 +11,7 @@ from qgis.core import (
     QgsProcessingParameterRasterDestination,
     QgsProcessingException,
 )
+from qgis.PyQt.QtGui import QIcon
 from ..core.raster_utils import create_output_raster, iterate_blocks, finalize_raster, count_blocks
 
 
@@ -30,6 +33,9 @@ class ZhangLseAlgorithm(QgsProcessingAlgorithm):
 
     def shortHelpString(self):
         return 'Estimates land surface emissivity using the Zhang et al. method based on NDVI thresholds.'
+
+    def icon(self):
+        return QIcon(os.path.join(os.path.dirname(__file__), '..', 'icons', 'emissivity.png'))
 
     def createInstance(self):
         return ZhangLseAlgorithm()
