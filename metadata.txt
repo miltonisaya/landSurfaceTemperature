@@ -1,23 +1,25 @@
 [general]
 name=Land Surface Temperature
 qgisMinimumVersion=3.0
-description=Extracts Land Surface Temperature from Landsat and ASTER satellite imagery
+description=Suite of 16 Processing algorithms for complete Land Surface Temperature retrieval from Landsat 5/7/8 and ASTER thermal imagery
 version=1.0
 author=Milton Isaya
 email=miltonisaiah@gmail.com
 
-about=This plugin provides a suite of algorithms in the QGIS Processing toolbox for deriving Land Surface Temperature (LST) from thermal infrared satellite imagery. It supports Landsat 5 TM, Landsat 7 ETM+, Landsat 8 TIRS, and ASTER sensors.
+about=This plugin provides a complete, step-by-step workflow for deriving Land Surface Temperature (LST) from satellite thermal imagery using 16 algorithms in the QGIS Processing toolbox. It supports Landsat 5 TM, Landsat 7 ETM+, Landsat 8 TIRS, and ASTER sensors. Input imagery can be obtained free of charge from USGS EarthExplorer (earthexplorer.usgs.gov) or NASA Earthdata (earthdata.nasa.gov).
+
+    Typical applications include urban heat island analysis, drought and vegetation stress monitoring, agricultural water management, wildfire burn severity assessment, and climate and land use change studies.
 
     Workflow:
     1. Compute NDVI from red and near-infrared bands
     2. Convert thermal band digital numbers to spectral radiance
-    3. Convert radiance to brightness temperature using sensor K1/K2 constants
-    4. Estimate land surface emissivity using NDVI-based methods
-    5. Retrieve land surface temperature
+    3. Convert radiance to at-sensor brightness temperature using K1/K2 calibration constants
+    4. Estimate land surface emissivity (LSE) using NDVI-based classification
+    5. Retrieve land surface temperature using one of six LST algorithms
 
     Available algorithms:
     Vegetation Indices  : Landsat NDVI, ASTER NDVI
-    Radiance            : TM Radiance, ETM+ Radiance, TIRS Radiance, ASTER Radiance
+    Radiance            : TM Radiance (L5), ETM+ Radiance (L7), TIRS Radiance (L8), ASTER Radiance
     Brightness Temp.    : Brightness Temperature (all sensors)
     Emissivity          : Zhang LSE, NDVI Threshold LSE, ASTER LSE
     LST                 : Planck Equation, Mono-Window Algorithm (Qin et al. 2001),
