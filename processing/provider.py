@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 """Land Surface Temperature Processing provider."""
 
+import os
+
 from qgis.core import QgsProcessingProvider
+from qgis.PyQt.QtGui import QIcon
 
 from .landsat_ndvi import LandsatNdviAlgorithm
 from .aster_ndvi import AsterNdviAlgorithm
@@ -31,6 +34,9 @@ class LstProvider(QgsProcessingProvider):
 
     def longName(self):
         return 'Land Surface Temperature Estimation'
+
+    def icon(self):
+        return QIcon(os.path.join(os.path.dirname(__file__), '..', 'icons', 'algorithms.png'))
 
     def loadAlgorithms(self):
         self.addAlgorithm(LandsatNdviAlgorithm())
