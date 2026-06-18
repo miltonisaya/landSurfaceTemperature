@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Radiative Transfer Equation algorithm for LST estimation."""
 
+import os
+
 import numpy as np
 from osgeo import gdal
 from qgis.core import (
@@ -11,6 +13,7 @@ from qgis.core import (
     QgsProcessingParameterRasterDestination,
     QgsProcessingException,
 )
+from qgis.PyQt.QtGui import QIcon
 from ..core.raster_utils import create_output_raster, iterate_blocks, finalize_raster, count_blocks
 from ..core.constants import SENSOR_K_CONSTANTS
 from ..core.unit_conversion import convert_temperature
@@ -45,6 +48,9 @@ class RadiativeTransferAlgorithm(QgsProcessingAlgorithm):
 
     def shortHelpString(self):
         return 'Estimates land surface temperature using the Radiative Transfer Equation with atmospheric correction parameters.'
+
+    def icon(self):
+        return QIcon(os.path.join(os.path.dirname(__file__), '..', 'icons', 'algorithms.png'))
 
     def createInstance(self):
         return RadiativeTransferAlgorithm()
