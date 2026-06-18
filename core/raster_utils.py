@@ -8,12 +8,12 @@ from osgeo import gdal
 # Maps common file extensions to their GDAL driver names.
 # Extensions not listed here fall back to GeoTIFF.
 _EXTENSION_DRIVERS = {
-    '.tif':  'GTiff',
+    '.tif': 'GTiff',
     '.tiff': 'GTiff',
-    '.img':  'HFA',
-    '.asc':  'AAIGrid',
-    '.nc':   'netCDF',
-    '.vrt':  'VRT',
+    '.img': 'HFA',
+    '.asc': 'AAIGrid',
+    '.nc': 'netCDF',
+    '.vrt': 'VRT',
     '.sdat': 'SAGA',
 }
 
