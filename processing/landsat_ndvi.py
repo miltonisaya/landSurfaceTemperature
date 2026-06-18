@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Landsat NDVI calculation algorithm."""
 
+import os
+
 import numpy as np
 from osgeo import gdal
 from qgis.core import (
@@ -9,6 +11,7 @@ from qgis.core import (
     QgsProcessingParameterRasterDestination,
     QgsProcessingException,
 )
+from qgis.PyQt.QtGui import QIcon
 from ..core.raster_utils import create_output_raster, iterate_blocks, finalize_raster, count_blocks
 
 
@@ -31,6 +34,9 @@ class LandsatNdviAlgorithm(QgsProcessingAlgorithm):
 
     def shortHelpString(self):
         return 'Calculates NDVI from separate Landsat red and NIR band rasters. NDVI = (NIR - Red) / (NIR + Red)'
+
+    def icon(self):
+        return QIcon(os.path.join(os.path.dirname(__file__), '..', 'icons', 'ndvi.png'))
 
     def createInstance(self):
         return LandsatNdviAlgorithm()
