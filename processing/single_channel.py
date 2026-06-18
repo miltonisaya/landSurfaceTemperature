@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Single Channel algorithm for Landsat LST estimation."""
 
+import os
+
 import numpy as np
 from osgeo import gdal
 from qgis.core import (
@@ -11,6 +13,7 @@ from qgis.core import (
     QgsProcessingParameterRasterDestination,
     QgsProcessingException,
 )
+from qgis.PyQt.QtGui import QIcon
 from ..core.raster_utils import create_output_raster, iterate_blocks, finalize_raster, count_blocks
 from ..core.constants import SINGLE_CHANNEL_PARAMS, C1, C2, SENSOR_WAVELENGTHS
 from ..core.unit_conversion import convert_temperature
@@ -42,6 +45,9 @@ class SingleChannelAlgorithm(QgsProcessingAlgorithm):
 
     def shortHelpString(self):
         return 'Estimates land surface temperature using the Single Channel algorithm (Jimenez-Munoz & Sobrino, 2003) for Landsat sensors.'
+
+    def icon(self):
+        return QIcon(os.path.join(os.path.dirname(__file__), '..', 'icons', 'algorithms.png'))
 
     def createInstance(self):
         return SingleChannelAlgorithm()
